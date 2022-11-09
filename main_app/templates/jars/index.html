@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/jars/jar-index.css' %}"
+/>
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+  <h1>Jar List</h1>
+  <img src="{% static 'images/Jar-2.png' %}" alt="Circle on a Jar" />
+  <img src="{% static 'images/Jar-3.png' %}" alt="Ribbin on a Jar" />
+  <img src="{% static 'images/Jar-4.png' %}" alt="Flower on a Jar" />
+  <img src="{% static 'images/Jar-5.png' %}" alt="Heart on a Jar" />
+</section>
+
+<section class="card-container">
+  {% for jar in jars %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img 
+            src="{% static 'images/Jar-5.png' %}" 
+            alt="Heart on a Jar"
+          >
+        </div>
+        <h2 class="card-title">{{ jar.name }}</h2>
+        <p>{{jar.contents}} {{jar.type}}</p>
+        <p><small>{{ jar.description }}</small></p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
