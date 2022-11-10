@@ -198,6 +198,7 @@ nav li {
 
   .header-logo-container {
     width: 213px;
+    align-items: center;
   }
 
   .page-header h1 {
@@ -213,6 +214,12 @@ nav li {
     margin-left: 25px;
   }
 
+  .header-logo-container >a > img {
+    width: 20px;
+    height: auto;
+  }
+
+  
   @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
     header {
       background: var(--nav-bg);
