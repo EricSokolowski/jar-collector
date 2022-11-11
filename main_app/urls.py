@@ -6,5 +6,7 @@ urlpatterns = [
 
   path('about/', views.about, name='about'),
 
-  path('jars/', views.jars_index, name='jars_index')
+  path('jars/', views.jars_index, name='jars_index'),
+
+  path('jars/<int:jar_id>/', views.jars_detail, name='jars_detail')
 ]

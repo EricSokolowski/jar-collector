@@ -22,6 +22,7 @@
 <section class="card-container">
   {% for jar in jars %}
     <div class="card">
+      <a href="/jars/{{ jar.id }}">
       <div class="card-content">
         <div class="card-img-container">
           <img 
@@ -33,6 +34,7 @@
         <p>{{jar.contents}} {{jar.type}}</p>
         <p><small>{{ jar.description }}</small></p>
       </div>
+    </a>
     </div>
   {% endfor %}
 </section>
