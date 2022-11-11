@@ -8,5 +8,7 @@ urlpatterns = [
 
   path('jars/', views.jars_index, name='jars_index'),
 
-  path('jars/<int:jar_id>/', views.jars_detail, name='jars_detail')
+  path('jars/<int:jar_id>/', views.jars_detail, name='jars_detail'),
+
+  path('jars/create/', views.JarCreate.as_view(), name='jars_create'),
 ]
