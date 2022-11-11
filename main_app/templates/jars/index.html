@@ -22,7 +22,7 @@
 <section class="card-container">
   {% for jar in jars %}
     <div class="card">
-      <a href="/jars/{{ jar.id }}">
+      <a href="{% url 'cats_detail' cat.id %}">
       <div class="card-content">
         <div class="card-img-container">
           <img 
