@@ -21,3 +21,4 @@ def jars_detail(request, jar_id):
 class JarCreate(CreateView):
   model = Jar
   fields = '__all__'
+  success_url = '/jars/'
