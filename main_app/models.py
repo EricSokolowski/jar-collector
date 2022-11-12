@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.urls import reverse
+
 # Create your models here.
 class Jar(models.Model):
   name = models.CharField(max_length=100)
@@ -10,3 +12,6 @@ class Jar(models.Model):
 
   def __str__(self):
     return self.name
+
+def get_absolute_url(self):
+    return reverse("jars_detail", kwargs={"jar_id": self.id})
