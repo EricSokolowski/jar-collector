@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Jar
 
 
@@ -21,4 +21,12 @@ def jars_detail(request, jar_id):
 class JarCreate(CreateView):
   model = Jar
   fields = '__all__'
+  success_url = '/jars/'
+
+class JarUpdate(UpdateView):
+  model = Jar
+  fields = ['contents', 'description', 'quantity']
+
+class JarDelete(DeleteView):
+  model = Jar
   success_url = '/jars/'

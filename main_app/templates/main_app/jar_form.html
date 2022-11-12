@@ -8,7 +8,11 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Add a Jar</h1>
+  {% if jar %}
+    <h1>Edit {{ jar.name }}</h1>
+  {% else %}
+    <h1>Add a Jar</h1>
+  {% endif %}
   <img src="{% static 'images/Jar-7.png' %}" alt="wittle jar"/>
 </div>
 {% comment %} 

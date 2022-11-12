@@ -11,4 +11,8 @@ urlpatterns = [
   path('jars/<int:jar_id>/', views.jars_detail, name='jars_detail'),
 
   path('jars/create/', views.JarCreate.as_view(), name='jars_create'),
+
+  path('jars/<int:pk>/update/', views.JarUpdate.as_view(), name='jars_update'),
+
+  path('jars/<int:pk>/delete/', views.JarDelete.as_view(), name='jars_delete'),
 ]

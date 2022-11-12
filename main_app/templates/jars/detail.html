@@ -22,6 +22,10 @@
     <h2 class="card-title">{{ jar.name }}</h2>
         <p>{{jar.contents}} {{jar.quantity}}</p>
         <p><small>{{ jar.description }}</small></p>
+        <div class="jar-actions">
+          <a href="{% url 'jars_update' jar.id %}" class="btn warn">Edit</a>
+          <a href="{% url 'jars_delete' jar.id %}" class="btn danger">Delete</a>
+        </div>
       </div>
 </section>
 

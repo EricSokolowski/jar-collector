@@ -13,5 +13,5 @@ class Jar(models.Model):
   def __str__(self):
     return self.name
 
-def get_absolute_url(self):
+  def get_absolute_url(self):
     return reverse("jars_detail", kwargs={"jar_id": self.id})
