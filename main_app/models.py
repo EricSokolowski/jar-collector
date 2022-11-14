@@ -1,6 +1,6 @@
 from django.db import models
-
 from django.urls import reverse
+from datetime import date
 
 PRODUCTS = (
   ('W', 'Windex'),
@@ -15,12 +15,14 @@ class Jar(models.Model):
   description = models.TextField(max_length=250)
   quantity = models.IntegerField(default = 1)
 
-
   def __str__(self):
     return self.name
 
   def get_absolute_url(self):
     return reverse("jars_detail", kwargs={"jar_id": self.id})
+
+  def fed_for_today(self):
+    return self.cleaning_set.filter(date=date.today()).count() >= len(PRODUCTS)
 
 class Cleaning(models.Model):
   date = models.DateField('Cleaning date')
@@ -36,3 +38,14 @@ class Cleaning(models.Model):
   
   class Meta:
     ordering = ['-date']
+
+class Sticker(models.Model):
+  name = models.CharField(max_length=50)
+  color = models.CharField(max_length=20)
+
+  def __str__(self):
+    return self.name
+    
+  def get_absolute_url(self):
+    return reverse('stickers_detail', kwargs={'pk': self.id})
+    

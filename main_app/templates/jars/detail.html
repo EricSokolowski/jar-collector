@@ -61,6 +61,11 @@
       method="post" 
       class="subsection-content"
     >
+    {% if jar.clean_for_today %}
+      <p class='clean'>{{jar.name}} has been cleaned today!</p>
+    {% else %}
+      <p class='unclean'>{{jar.name}} might need a cleaning!</p>
+    {% endif %}
       {% csrf_token %}
       {{ cleaning_form.as_p }}
       <button type="submit" class="btn submit">Add Cleaning</button>

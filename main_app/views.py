@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Jar
+from .models import Jar, Sticker
 from .forms import CleaningForm
 
 
@@ -40,3 +40,7 @@ class JarUpdate(UpdateView):
 class JarDelete(DeleteView):
   model = Jar
   success_url = '/jars/'
+
+class StickerCreate(CreateView):
+  model = Sticker
+  fields = '__all__'
