@@ -6,14 +6,14 @@
 {% endblock %}
 
 {% block content %}
+
 <div class="page-header">
-  {% if object %}
-    <h1>Edit {{object.name}}</h1>
-  {% else %}
-    <h1>Add a Sticker</h1>
-  {% endif %}
-  <img src="{% static 'images/Jar-5.png' %}" alt="Jar with a heart on it"/>
+  <h1>Sign Up</h1>
+  <img src="{% static 'images/Jar-6.png' %}" alt="A cat using a ribbon thing"/>
 </div>
+{% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+{% endif %}
 <form action="" method="post" class="form-container" autocomplete="off">
   {% csrf_token %}
   <table>

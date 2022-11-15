@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 PRODUCTS = (
   ('W', 'Windex'),
@@ -25,6 +26,7 @@ class Jar(models.Model):
   description = models.TextField(max_length=250)
   quantity = models.IntegerField(default = 1)
   stickers = models.ManyToManyField(Sticker)
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.name

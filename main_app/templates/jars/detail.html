@@ -25,7 +25,7 @@
   <div class="jar-img">
     <img 
       src="{% static 'images/Jar-2.png' %}" 
-      alt="A skater boy cat"
+      alt="Circle Jar"
     >
   </div>
   <div class="jar-details">
@@ -44,15 +44,15 @@
       <h2>Cleanings</h2>
       <img 
         src="{% static 'images/Cleaning-Product-1.png' %}" 
-        alt="An ice cream cone cat"
+        alt="Poorple pump"
       />
       <img 
         src="{% static 'images/Cleaning-Product-2.png' %}"
-        alt="A cat as onigiri"
+        alt="Bluu pump"
       />
       <img 
         src="{% static 'images/Cleaning-Product-3.png' %}" 
-        alt="A kabob of kittens"
+        alt="YELLOw pump"
       />
     </div>
     <h3>Add a Cleaning</h3>
@@ -94,9 +94,9 @@
   <section class="stickers">
     <div class="subsection-title">
       <h2>Stickers</h2>
-      <img src="{% static 'images/Stickers-1.png' %}" alt="A ball of string" />
-      <img src="{% static 'images/Stickers-2.png' %}" alt="A mouse" />
-      <img src="{% static 'images/Stickers-3.png' %}" alt="A fishy toy" />
+      <img src="{% static 'images/Stickers-1.png' %}" alt="Wifi sticker" />
+      <img src="{% static 'images/Stickers-2.png' %}" alt="FLower (:" />
+      <img src="{% static 'images/Stickers-3.png' %}" alt="Cactus" />
     </div>
     <h3>{{ jar.name }}'s Stickers</h3>
     <div class="subsection-content">
@@ -106,7 +106,8 @@
             <div 
               class="color-block"
               style="background-color: {{ sticker.color }}"
-            ></div>
+            >
+            </div>
             <a href="{% url 'stickers_detail' sticker.id %}">
               <p>A {{ sticker.color }} {{ sticker.name }}</p>
             </a>
@@ -124,7 +125,8 @@
             <div 
               class="color-block"
               style="background-color: {{ sticker.color }}"
-            ></div>
+            >
+            </div>
             <a href="{% url 'stickers_detail' sticker.id %}">
               <p>A {{ sticker.color }} {{ sticker.name }}</p>
             </a>
