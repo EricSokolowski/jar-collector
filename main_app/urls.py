@@ -18,6 +18,8 @@ urlpatterns = [
 
   path('jars/<int:jar_id>/add_cleaning/', views.add_cleaning, name='add_cleaning'),
 
+  path('jars/<int:jar_id>/assoc_sticker/<int:sticker_id>/', views.assoc_sticker, name='assoc_sticker'),
+
   path('stickers/create/', views.StickerCreate.as_view(), name='stickers_create'),
 
   path('stickers/<int:pk>/', views.StickerDetail.as_view(), name='stickers_detail'),

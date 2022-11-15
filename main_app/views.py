@@ -18,8 +18,11 @@ def jars_index(request):
 
 def jars_detail(request, jar_id):
   jar = Jar.objects.get(id=jar_id)
+  stickers_jar_doesnt_have = Sticker.objects.exclude(id__in = jar.stickers.all().values_list('id'))
   cleaning_form = CleaningForm()
-  return render(request, 'jars/detail.html', { 'jar': jar, 'cleaning_form': cleaning_form })
+  return render(request, 'jars/detail.html', {
+    'jar': jar, 'cleaning_form': cleaning_form, 'stickers': stickers_jar_doesnt_have
+  })
 
 def add_cleaning(request, jar_id):
   form = CleaningForm(request.POST)
@@ -29,9 +32,13 @@ def add_cleaning(request, jar_id):
     new_cleaning.save()
   return redirect('jars_detail', jar_id = jar_id)
 
+def assoc_sticker(request, jar_id, sticker_id):
+  Jar.objects.get(id=jar_id).stickers.add(sticker_id)
+  return redirect('jars_detail', jar_id=jar_id)
+
 class JarCreate(CreateView):
   model = Jar
-  fields = '__all__'
+  fields = ['name', 'contents', 'description', 'quantity']
   success_url = '/jars/'
 
 class JarUpdate(UpdateView):

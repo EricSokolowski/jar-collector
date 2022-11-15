@@ -91,5 +91,55 @@
     </div>
     {% endif %}
   </section>
+  <section class="stickers">
+    <div class="subsection-title">
+      <h2>Stickers</h2>
+      <img src="{% static 'images/Stickers-1.png' %}" alt="A ball of string" />
+      <img src="{% static 'images/Stickers-2.png' %}" alt="A mouse" />
+      <img src="{% static 'images/Stickers-3.png' %}" alt="A fishy toy" />
+    </div>
+    <h3>{{ jar.name }}'s Stickers</h3>
+    <div class="subsection-content">
+      {% if jar.stickers.count %}
+        {% for sticker in jar.stickers.all %}
+          <div class="sticker-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ sticker.color }}"
+            ></div>
+            <a href="{% url 'stickers_detail' sticker.id %}">
+              <p>A {{ sticker.color }} {{ sticker.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-stickers">{{jar.name}} doesn't have any toys 😞</p>
+      {% endif %}
+    </div>
+    <h3>Available Stickers</h3>
+    <div class="subsection-content">
+      {% if stickers.count %}
+        {% for sticker in stickers.all %}
+          <div class="sticker-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ sticker.color }}"
+            ></div>
+            <a href="{% url 'stickers_detail' sticker.id %}">
+              <p>A {{ sticker.color }} {{ sticker.name }}</p>
+            </a>
+            <form action="{% url 'assoc_sticker' jar.id sticker.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn submit">Give sticker</button>
+            </form>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="all-stickers">
+          {{jar.name}} already has all the available stickers 🥳
+        </p>
+      {% endif %}
+    </div>
+  </section>
 </div>
 {% endblock %}
