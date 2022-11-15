@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Jar, Sticker
 from .forms import CleaningForm
@@ -44,3 +45,17 @@ class JarDelete(DeleteView):
 class StickerCreate(CreateView):
   model = Sticker
   fields = '__all__'
+
+class StickerList(ListView):
+  model = Sticker
+
+class StickerDetail(DetailView):
+  model = Sticker
+
+class StickerUpdate(UpdateView):
+  model = Sticker
+  fields = ['name', 'color']
+
+class StickerDelete(DeleteView):
+  model = Sticker
+  success_url = '/stickers/'

@@ -19,4 +19,12 @@ urlpatterns = [
   path('jars/<int:jar_id>/add_cleaning/', views.add_cleaning, name='add_cleaning'),
 
   path('stickers/create/', views.StickerCreate.as_view(), name='stickers_create'),
+
+  path('stickers/<int:pk>/', views.StickerDetail.as_view(), name='stickers_detail'),
+
+  path('stickers/', views.StickerList.as_view(), name='stickers_index'),
+
+  path('stickers/<int:pk>/update/', views.StickerUpdate.as_view(), name='stickers_update'),
+
+  path('stickers/<int:pk>/delete/', views.StickerDelete.as_view(), name='stickers_delete'),
 ]
